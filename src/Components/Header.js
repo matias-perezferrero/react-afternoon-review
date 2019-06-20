@@ -7,10 +7,8 @@ class Header extends Component {
 
   render() {
     return (
-      <div>
-        <div />
-        <div />
-        <div />
+      <div className="header">
+        <h3>Home</h3>
       </div>
     );
   }

@@ -6,16 +6,22 @@ class Content extends Component {
     super();
 
     this.state = {
-      list: data
+      list: data,
+      i: 0
     };
   }
 
   render() {
     return (
-      <div>
-        <div />
-        <div />
-        <div />
+      <div className="main-content">
+        <div id="page-number">{this.state.i}/25</div>
+        <div id="content">
+          <h2>
+            {data[this.state.i].name.first} {data[this.state.i].name.last}
+          </h2>
+          <div />
+          <div />
+        </div>
       </div>
     );
   }
