@@ -8,13 +8,19 @@ class ButtonBar extends Component {
   render() {
     return (
       <div className="button-bar">
-        <button className="navigation-button">{`< Previous`}</button>
+        <button
+          className="navigation-button"
+          onClick={this.props.handlePrevious}
+        >{`< Previous`}</button>
         <div id="functional-button-container">
           <button className="functional-button">Edit</button>
           <button className="functional-button">Delete</button>
           <button className="functional-button">New</button>
         </div>
-        <button className="navigation-button">{`    Next >`}</button>
+        <button
+          className="navigation-button"
+          onClick={this.props.handleNext}
+        >{`    Next >`}</button>
       </div>
     );
   }

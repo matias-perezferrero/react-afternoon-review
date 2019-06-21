@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ButtonBar from "./ButtonBar";
 import data from "../data";
+import { throwStatement } from "@babel/types";
 
 class Content extends Component {
   constructor() {
@@ -12,10 +13,43 @@ class Content extends Component {
     };
   }
 
+  handleNext = () => {
+    let iCopy = this.state.i;
+    if (this.state.i === this.state.list.length - 1) {
+      this.setState({
+        i: 0
+      });
+    } else {
+      this.setState({
+        i: iCopy + 1
+      });
+    }
+  };
+
+  handlePrevious = () => {
+    let iCopy = this.state.i;
+    if (this.state.i === 0) {
+      let listCopy = [...this.state.list];
+      this.setState({
+        i: listCopy.length - 1
+      });
+    } else {
+      this.setState({
+        i: iCopy - 1
+      });
+    }
+  };
+
+  handleEdit = () => {};
+
+  handleDelete = () => {};
+
+  handleNew = () => {};
+
   render() {
     return (
       <div className="main-content-container">
-        <div id="page-number">{this.state.i}/25</div>
+        <div id="page-number">{this.state.i}/24</div>
         <div id="content">
           <h2 id="name">
             {this.state.list[this.state.i].name.first}{" "}
@@ -47,7 +81,10 @@ class Content extends Component {
             </ol>
           </div>
         </div>
-        <ButtonBar />
+        <ButtonBar
+          handlePrevious={this.handlePrevious}
+          handleNext={this.handleNext}
+        />
       </div>
     );
   }
